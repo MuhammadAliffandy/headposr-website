@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeadPosr Real-Time Camera</title>
+    <link rel="stylesheet" href="./static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Headposr</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#feature">Feature</a></li>
+            <li><a href="#form">Try</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+        <button><a><i class="fa-brands fa-github"></i></i><p>Github</p></a></button>
+    </nav>
+    <section class="home-section" id="home">
+        <div class="left">
+            <div>
+                <h1>Head Pose Estimation with Headposr</h1>
+                <p>
+                    Head pose estimation dengan HeadPosr memprediksi orientasi kepala (yaw, pitch, roll) menggunakan model deep learning. Algoritma ini menggabungkan EfficientNet dan Transformer Encoder untuk akurasi tinggi dalam aplikasi pelacakan wajah dan interaksi.
+                </p>
+                <button><a href="/video_feed">Coba Sekarang</a></button>
+            </div>
+
+        </div>
+        <div class="right">
+            <img src="{{ url_for('static', filename='image/gambar-01.png') }}" alt="Example Image">
+        </div>
+    </section>
+    <!--  -->
+    <section class="about-section" id="about">
+        <div class="title">
+            <h1 >Tentang</h1>
+            <p>Apa itu Headposr sebenarnya?</p>
+        </div>
+        <div class="container">
+            <div class="left">
+                <img src="{{ url_for('static', filename='image/gambar-02.png') }}" alt="Example Image">
+            </div>
+            <div class="right">
+                <div>
+                    <h1>Headposr</h1>
+                    <br>
+                    <p>
+                        HeadPosr adalah algoritma berbasis deep learning yang dirancang untuk melakukan estimasi pose kepala secara akurat. Algoritma ini memanfaatkan kekuatan EfficientNet-B0 sebagai backbone untuk ekstraksi fitur dari gambar wajah dan Transformer Encoder untuk mengolah fitur tersebut dalam memprediksi orientasi kepala dalam tiga sudut utama: yaw, pitch, dan roll.
+                    </p> <br>
+                    <p>Dengan kombinasi arsitektur ini, HeadPosr mampu menghasilkan estimasi pose kepala yang presisi bahkan dalam kondisi pencahayaan yang kurang ideal atau variasi sudut pandang. Model ini dilatih menggunakan dataset berbasis citra, seperti BIWI, dengan teknik augmentasi data untuk meningkatkan generalisasi.</p>
+                    <br> <p>Keunggulan utama HeadPosr adalah efisiensinya dalam proses inferensi, menjadikannya ideal untuk aplikasi real-time seperti pengawasan, pengenalan emosi, sistem interaksi manusia-komputer, serta teknologi AR/VR. Selain itu, algoritma ini dirancang untuk mendukung perangkat keras dengan daya komputasi terbatas tanpa mengorbankan akurasi hasil.
+
+                        HeadPosr merupakan solusi modern untuk kebutuhan estimasi pose kepala yang cepat, efisien, dan andal, membuka jalan bagi berbagai inovasi di bidang analisis citra dan pengenalan wajah.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!--  -->
+    <section class="feature-section" id="feature">
+        <div class="title">
+            <h1 >Fitur</h1>
+            <p>Apa saja fitur fiturnya?</p>
+        </div>
+        <div class="container">
+            <div class="child">
+                <div class="component">
+                    <div>
+                        <h1>Pelatihan</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                            deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <img src="{{ url_for('static', filename='image/gambar-03.png') }}" alt="Example Image">
+            </div>
+            <!--  -->
+            <div class="child">
+                <div class="component">
+                    <div>
+                        <h1>Prediksi</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                            deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <img src="{{ url_for('static', filename='image/gambar-04.png') }}" alt="Example Image">
+            </div>
+            <!--  -->
+            <div class="child">
+                <div class="component">
+                    <div>
+                        <h1>Model</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                            deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <img src="{{ url_for('static', filename='image/gambar-05.png') }}" alt="Example Image">
+            </div>
+            <!--  -->
+        </div>
+    </section>
+    <!--  -->
+    <section class="form-section" id="form">
+        <div class="title">
+            <h1 >Coba Prediksimu</h1>
+            <p>Apakah anda ingin mencoba?</p>
+        </div>
+        <div class="container">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label class="custom-file-upload">
+                    <input type="file" name="file" accept="image/*" required>
+                    Pilih Gambar
+                </label>
+                <button type="submit">Unggah dan Deteksi</button>
+            </form>
+        
+            {% if uploaded_image %}
+            <div class="image-value">
+                <div class="left">
+                    <h3>Gambar Asli:</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Uploaded Image">
+                </div>
+                <div class="right">
+                    <h3>Gambar dengan Euler Angles:</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + processed_image) }}" alt="Processed Image">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+    <!--  -->
+    <section class="contact-section" id="contact">
+        <div class="title">
+            <h1 >Hubungi Saya</h1>
+            <p>Ingin Hubungi saya?</p>
+        </div>
+        <div class="container">
+            <img src="{{ url_for('static', filename='image/gambar-07.jpeg') }}" alt="Example Image">
+            <div class="component">
+                <p class="text">Jangan ragu untuk menghubungi saya<br>Saya siap membantu Anda!</p>
+                <div>
+                        <button><a><i class="fa-brands fa-whatsapp"></i><p>whatsapp</p></a></button>
+                        <button><a><i class="fa-regular fa-envelope"></i><p>Email</p></a></button>
+                        <button><a><i class="fa-brands fa-instagram"></i><p>instagram</p></a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  -->
+    <footer>
+
+    </footer>
+</body>
+</html>

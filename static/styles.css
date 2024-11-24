@@ -1,0 +1,404 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Crimson Text", serif;
+    background-color: black;
+    color: white;
+}
+
+p,h1{
+    margin: 0;
+}
+
+video {
+    border: 2px solid #333;
+    border-radius: 8px;
+}
+
+
+/* navbar */
+.navbar{
+    display : flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+.navbar button{
+    width: max-content;
+    padding: 12px;
+    border-radius: 40px;
+    border: 0px;
+    font-size: 14px;
+}
+
+.navbar button a{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.navbar ul{
+    display : flex;
+    align-items: center;
+    gap: 40px;
+    list-style-type: none;
+}
+
+.navbar ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+
+}
+
+/* section */
+
+section {
+    width : 100vw;
+    height : 150vh;
+
+}
+
+/*  title*/
+.title{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.title h1{
+    font-size: 32px;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+.title p{
+    font-size: 16px;
+    margin: 0;
+}
+
+/* home section */
+
+.home-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
+}
+
+.home-section .left{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-section .left div{
+    width: max-content;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.home-section .left h1{
+    font-size: 32px;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+.home-section .left p{
+    font-size: 16px;
+    margin-bottom: 60px;
+}
+.home-section .left button{
+    width: 25%;
+    padding: 12px;
+    border-radius: 40px;
+    border: 0px;
+    font-size: 14px;
+}
+
+.home-section .left button a{
+    color: black;
+    text-decoration: none;
+}
+
+.home-section .right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-section .right img{
+    height: auto;
+    width: 95%;
+}
+
+/* about section */
+
+.about-section {
+    margin-top: 100px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-section .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.about-section .container .right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section .container .right div h1 {
+    font-size: 32px;
+}
+.about-section .container .right div p {
+    width: 70%;
+}
+
+.about-section .container .left{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-section .container .left img{
+    width: 70%;
+    height: auto;
+
+}
+
+
+/* feature section */
+
+.feature-section {
+    margin-top: 100px;
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-section  .container{
+    width: 95%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+}
+
+.feature-section  .container .child{
+    width: 48%;
+    height: max-content;
+    background: linear-gradient(to left, rgba(59, 58, 58, 0.618), transparent);
+    display: flex;
+    align-items: center;
+    text-align: right;
+    
+}
+
+.feature-section  .container .child div{
+    padding-right: 8px;
+}
+
+.feature-section  .container .child div div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feature-section  .container .child div div h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+}
+
+.container .child:nth-child(2) {
+    margin-left: auto;  
+    flex-direction: row-reverse;
+    background: linear-gradient(to right, rgba(59, 58, 58, 0.618), transparent);
+    text-align: left;
+}
+
+.container .child:nth-child(2) div{
+    padding-left: 8px;
+
+}
+
+.feature-section  .container .child img{
+    width: 25%;
+    height: auto;
+}
+
+/* form */
+
+.form-section{
+    margin-top: 100px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+}
+
+.form-section .container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-section .container form .custom-file-upload  input[type="file"] {
+    display: none; /* Sembunyikan input file asli */
+}
+
+.form-section .container form .custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: white;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.form-section .container form .custom-file-upload:hover {
+    background-color: #594cdb;
+}
+
+.form-section .container form button{
+    width: max-content;
+    padding: 12px;
+    border-radius: 40px;
+    border: 0px;
+    font-size: 14px;
+}
+
+.form-section .container img{
+    width: 100%;
+    height: auto;
+}
+
+.form-section .image-value{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form-section .image-value .left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-section .image-value .right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* contact */
+
+.contact-section{
+    margin-top: 100px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.contact-section .container{
+    width: 95%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-section .container img{
+    position: relative;
+    width: 100%;
+    height: 80%;
+}
+
+.contact-section .container .text{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.contact-section .container .component{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 95%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-section .container .component div {
+    display: flex;
+    gap: 6px;
+
+}
+
+.contact-section .container .component div button {
+    width: max-content;
+    padding: 12px 20px;
+    border-radius: 40px;
+    border: 0px;
+    font-size: 14px;
+
+}
+
+.contact-section .container .component div button a{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+}
+.contact-section .container .component div button p {
+    margin: 0;
+}
