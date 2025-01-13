@@ -1,13 +1,29 @@
 # Gunakan image dasar yang memiliki Python
 FROM python:3.11-slim
 
-# Install system dependencies termasuk libGL.so.1 yang diperlukan untuk OpenCV
-RUN apt-get update && apt-get install -y \
+# Install system dependencies untuk OpenCV termasuk dependensi OpenCV versi 3
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1-mesa-glx \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
     libxrender1 \
+    build-essential \
+    cmake \
+    pkg-config \
+    libjpeg-dev \
+    libpng-dev \
+    libtiff-dev \
+    libavcodec-dev \
+    libavformat-dev \
+    libswscale-dev \
+    libv4l-dev \
+    libxvidcore-dev \
+    libx264-dev \
+    libgtk-3-dev \
+    libatlas-base-dev \
+    gfortran \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
