@@ -1,0 +1,8 @@
+Flask
+opencv-python
+dlib
+torch
+torchvision
+Pillow
+numpy
+scipy

@@ -19,7 +19,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Load model HeadPosr
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model_path = "./model/biwieh64_model_fold_1.pth"
+model_path = "./model/biwieh64_new_fold_1.pth"
 model = HeadPosr()  # Ganti dengan definisi model Anda
 model.load_state_dict(torch.load(model_path, map_location=device))
 model.to(device)
@@ -61,7 +61,7 @@ def draw_euler_angles(image, yaw, pitch, roll, bbox, size=50):
 
 # Fungsi untuk stream kamera
 def generate_frames():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
 
     while True:
         success, frame = cap.read()

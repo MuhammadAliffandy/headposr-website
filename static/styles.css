@@ -1,3 +1,5 @@
+html { scroll-behavior: smooth;}
+
 body {
     display: flex;
     flex-direction: column;
@@ -27,6 +29,12 @@ video {
     justify-content: space-around;
     padding: 5px;
     font-family: "Montserrat", sans-serif;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: black;
     
 }
 
