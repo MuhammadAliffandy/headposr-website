@@ -9,3 +9,4 @@ scipy
 matplotlib
 torch
 memory-profiler
+gunicorn

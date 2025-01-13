@@ -41,4 +41,5 @@ COPY . .
 EXPOSE 5000
 
 # Tentukan perintah untuk menjalankan aplikasi
-CMD ["python", "app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+
