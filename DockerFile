@@ -28,7 +28,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Set working directory di dalam container
 WORKDIR /app
-
 # Salin requirements.txt ke dalam container
 COPY requirements.txt .
 
