@@ -61,7 +61,7 @@ def draw_euler_angles(image, yaw, pitch, roll, bbox, size=50):
 
 # Fungsi untuk stream kamera
 def generate_frames():
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
 
     while True:
         success, frame = cap.read()
