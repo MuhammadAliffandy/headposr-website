@@ -6,3 +6,6 @@ torchvision
 Pillow
 numpy
 scipy
+matplotlib
+torch
+memory-profiler
