@@ -1,2 +1,7 @@
+[build]
+commands = [
+  "apt-get update && apt-get install -y cmake gcc g++ make libboost-all-dev"
+]
+
 [processes]
 web = "python app.py"
