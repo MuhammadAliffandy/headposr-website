@@ -1,6 +1,6 @@
 Flask
 opencv-python
-dlib==19.24.6s
+dlib==19.24.6
 torch
 torchvision
 Pillow
