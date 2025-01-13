@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3-dev \
     v4l-utils \  # Tambahkan v4l-utils
-    linux-headers-$(uname -r) \  # Tambahkan kernel headers
+    linux-headers-generic \  # Header kernel generik
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
