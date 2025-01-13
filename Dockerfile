@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3-dev \
     v4l-utils \  # Tambahkan v4l-utils
-    linux-headers-generic \  # Header kernel generik
+    linux-headers-amd64 \  # Header kernel untuk Debian
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
