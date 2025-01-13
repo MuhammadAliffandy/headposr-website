@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxrender1 \
     build-essential \
     python3-dev \
+    v4l-utils \  # Tambahkan v4l-utils
+    linux-headers-$(uname -r) \  # Tambahkan kernel headers
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
