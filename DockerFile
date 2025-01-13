@@ -1,0 +1,11 @@
+FROM python:3.9-slim
+
+# Install dependencies including cmake and others required for dlib
+RUN apt-get update && apt-get install -y cmake gcc g++ make libboost-all-dev
+
+WORKDIR /app
+COPY . /app
+
+RUN python -m venv /opt/venv && . /opt/venv/bin/activate && pip install --no-cache-dir -r requirements.txt
+
+CMD ["python", "app.py"]
