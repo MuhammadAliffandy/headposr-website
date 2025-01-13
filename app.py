@@ -61,7 +61,15 @@ def draw_euler_angles(image, yaw, pitch, roll, bbox, size=50):
 
 # Fungsi untuk stream kamera
 def generate_frames():
-    cap = cv2.VideoCapture(0)
+    # cap = cv2.VideoCapture(0)
+    # # Mencoba untuk membuka perangkat video /dev/video0, /dev/video1, dst.
+    for i in range(10):  # Menguji dari /dev/video0 sampai /dev/video9
+        cap = cv2.VideoCapture(i)
+        if cap.isOpened():
+            print(f"Video device /dev/video{i} berhasil dibuka!")
+            cap.release()
+        else:
+            print(f"Video device /dev/video{i} tidak ditemukan atau gagal dibuka.")
 
     while True:
         success, frame = cap.read()
