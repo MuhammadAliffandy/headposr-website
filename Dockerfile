@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxrender1 \
     build-essential \
     python3-dev \
-    v4l-utils \  
-    linux-headers-amd64 \  
+    v4l-utils \
+    linux-headers-amd64 \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
@@ -32,5 +32,5 @@ COPY check_video.py /app/check_video.py
 # Tentukan port yang digunakan aplikasi
 EXPOSE 5000
 
-# Tentukan perintah untuk menjalankan aplikasi
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# Tentukan perintah untuk menjalankan check_video.py terlebih dahulu, kemudian aplikasi utama
+CMD ["sh", "-c", "python check_video.py && gunicorn --bind 0.0.0.0:5000 app:app"]
