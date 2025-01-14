@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxrender1 \
     build-essential \
     python3-dev \
-    v4l-utils \  
-    linux-headers-amd64 \  
+    v4l-utils \  # Alat untuk mengakses perangkat video
+    linux-headers-amd64 \  # Header kernel untuk mengakses perangkat keras
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
@@ -25,6 +25,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Salin seluruh aplikasi ke dalam container
 COPY . .
+
+# Tambahkan skrip untuk memeriksa perangkat video
+COPY check_video.py /app/check_video.py
 
 # Tentukan port yang digunakan aplikasi
 EXPOSE 5000
