@@ -9,4 +9,5 @@ scipy
 matplotlib
 torch
 memory-profiler
+flask_socketio 
 gunicorn
