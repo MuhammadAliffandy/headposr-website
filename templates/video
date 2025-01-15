@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeadPose Estimation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        video, img {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+        }
+        #status {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .video-result{
+            display: flex;
+            width: 100%;
+            height: max-content;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-element{
+            visibility: hidden;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Head Pose Estimation Using WebRTC and Flask</h1>
+
+    <!-- Video element for webcam feed -->
+    <video class="video-element" id="videoElement" autoplay></video>
+
+    <!-- Image element for displaying processed video -->
+    <div class="video-result">
+        <img id="processedImage" src="" alt="Processed Video" style="display: none;">
+    </div>
+
+    <div id="status">Waiting for video...</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        const socket = io.connect();  // Connect to the server
+
+        // Start camera and capture video feed
+        async function startCamera() {
+            const videoElement = document.getElementById('videoElement');
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = stream;
+                document.getElementById('status').textContent = 'Streaming video...';
+
+                // Capture frames and send them to the server
+                const videoTrack = stream.getVideoTracks()[0];
+                const imageCapture = new ImageCapture(videoTrack);
+                setInterval(async () => {
+                    const photo = await imageCapture.takePhoto();
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        const base64Image = reader.result.split(',')[1];  // Extract base64 image data
+                        socket.emit('video_stream', base64Image);  // Send image to the server
+                    };
+                    reader.readAsDataURL(photo);
+                }, 100); // Capture and send image every 100ms
+
+            } catch (err) {
+                console.error("Error accessing camera:", err);
+                document.getElementById('status').textContent = 'Error accessing camera.';
+            }
+        }
+
+        // Start camera when page loads
+        startCamera();
+
+        // Receive processed frame and display it
+        socket.on('video_frame', function(frame_data) {
+            const processedImage = document.getElementById('processedImage');
+            processedImage.src = "data:image/jpeg;base64," + frame_data;
+            processedImage.style.display = 'block';  // Show processed frame image
+        });
+    </script>
+</body>
+</html>
