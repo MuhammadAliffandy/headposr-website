@@ -1,5 +1,4 @@
-# Gunakan base image yang stabil
-FROM ubuntu:20.04
+FROM python:3.11-slim
 
 # Install system dependencies yang diperlukan
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -11,31 +10,31 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3-dev \
     v4l-utils \
-    linux-headers-generic \
+    linux-headers-$(uname -r) \
     dkms \
     git \
     make \
     gcc \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install v4l2loopback module
-RUN git clone https://github.com/umlaeute/v4l2loopback.git /tmp/v4l2loopback && \
-    cd /tmp/v4l2loopback && \
-    make > /tmp/v4l2loopback_build.log 2>&1 && \
-    make install && \
-    depmod -a && \
-    rm -rf /tmp/v4l2loopback
+    ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set working directory di dalam container
 WORKDIR /app
 
-# Salin aplikasi
+# Salin requirements.txt ke dalam container
 COPY requirements.txt .
+
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Salin seluruh aplikasi ke dalam container
 COPY . .
 
-# Tentukan port aplikasi
+# Tentukan perintah untuk menjalankan aplikasi
+COPY check_video.py /app/check_video.py
+
+# Tentukan port yang digunakan aplikasi
 EXPOSE 5000
 
-# Jalankan aplikasi
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# Perintah untuk menjalankan script check_video dan aplikasi utama
+CMD ["sh", "-c", "python check_video.py && gunicorn --bind 0.0.0.0:5000 app:app"]
