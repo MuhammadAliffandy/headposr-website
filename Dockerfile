@@ -12,12 +12,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-dev \
     v4l-utils \
     linux-headers-amd64 \
+    cmake \
     git \
     make \
-    gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Install v4l2loopback module dan alat pengguna
+# Install v4l2loopback
 RUN git clone https://github.com/umlaeute/v4l2loopback.git /tmp/v4l2loopback && \
     cd /tmp/v4l2loopback && \
     make && make install && \
