@@ -1,5 +1,5 @@
-# Gunakan base image dengan kernel headers yang sesuai
-FROM debian:bullseye
+# Gunakan base image yang stabil
+FROM ubuntu:20.04
 
 # Install system dependencies yang diperlukan
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -11,14 +11,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3-dev \
     v4l-utils \
-    linux-headers-$(uname -r) \
+    linux-headers-generic \
     dkms \
     git \
     make \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Install v4l2loopback module dan tambahkan logging
+# Install v4l2loopback module
 RUN git clone https://github.com/umlaeute/v4l2loopback.git /tmp/v4l2loopback && \
     cd /tmp/v4l2loopback && \
     make > /tmp/v4l2loopback_build.log 2>&1 && \
