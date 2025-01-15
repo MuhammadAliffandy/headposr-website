@@ -12,7 +12,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-dev \
     v4l-utils \
     linux-headers-amd64 \
+    dkms \
     && rm -rf /var/lib/apt/lists/*
+
+# Install v4l2loopback module dan alat pengguna
+RUN git clone https://github.com/umlaeute/v4l2loopback.git /tmp/v4l2loopback && \
+    cd /tmp/v4l2loopback && \
+    make && make install && \
+    depmod -a && \
+    rm -rf /tmp/v4l2loopback
 
 # Set working directory di dalam container
 WORKDIR /app
